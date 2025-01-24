@@ -1,15 +1,17 @@
-# "org" ensures this Service is used with the correct Serverless Framework License Key.
-org: daniellllll
-# "service" is the name of this project. This will also be added to your AWS resource names.
 service: Examples-Lambda-Functions-NodeJS
+frameworkVersion: "4"
+plugins:
+  - serverless-dotenv-plugin
 
 provider:
   name: aws
   runtime: nodejs20.x
+  lambdaHashingVersion: '20201221'
+  region: us-east-1
 
 functions:
-  hello:
-    handler: handler.hello
+  pizza_restaurant:
+    handler: src/functions/pizza-restaurant/pizza-restaurant.pizza_restaurant
     events:
       - httpApi:
           path: /
